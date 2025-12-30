@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Sistema Financeiro</title>
+</head>
+<body>
+
+    <h1>Sistema Financeiro</h1>
+
+    <h3>Saldo: R$ {{ saldo }}</h3>
+    <p>Receitas: R$ {{ receitas }}</p>
+    <p>Despesas: R$ {{ despesas }}</p>
+
+    <hr>
+
+    <h2>Lançamentos</h2>
+
+    <ul>
+        {% for l in lancamentos %}
+            <li>
+                {{ l.descricao }} - R$ {{ l.valor }}
+                ({{ l.get_tipo_display }})
+            </li>
+        {% empty %}
+            <li>Nenhum lançamento cadastrado</li>
+        {% endfor %}
+    </ul>
+
+</body>
+</html>
